@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔮 유민 타로트 카드 예언 🔮</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>🔮 유민 타로트 카드 예언 🔮</h1>
+        <p class="instruction">질문을 입력하고, 아래에서 **한 장의 카드**를 선택하세요.</p>
+
+        <div class="question-input-group">
+            <label for="userQuestion">당신의 질문을 입력하세요:</label>
+            <input type="text" id="userQuestion" placeholder="당신의 질문은 당신의 선택입니다. 후회하지 마세요.">
+            <button id="magicButton" class="magic-button" style="display: none;">MAGIC</button>
+        </div>
+
+        <div id="cardSelectionArea" class="card-selection" style="display: none;">
+            <button class="card" data-card="card1">카드 1</button>
+            <button class="card" data-card="card2">카드 2</button>
+            <button class="card" data-card="card3">카드 3</button>
+            <button class="card" data-card="card4">카드 4</button>
+            <button class="card" data-card="card5">카드 5</button>
+            <button class="card" data-card="card6">카드 6</button>
+            <button class="card" data-card="card7">카드 7</button>
+            <button class="card" data-card="card8">카드 8</button>
+            <button class="card" data-card="card9">카드 9</button>
+        </div>
+        <div class="button-group">
+            <button id="getPredictionBtn">마음의 버튼</button>
+            <button id="resetBtn">새로운 시작</button>
+        </div>
+        <div id="predictionResult" class="prediction-result">
+            <!-- 예언 결과가 여기에 표시됩니다. -->
+        </div>
+    </div>
+    <p class="disclaimer">운영자는 어떠한 책임도 지지 않아요. 재미로만 즐기세요.</p>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,287 @@
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    display: flex;
+    flex-direction: column; /* Flex direction을 column으로 변경하여 고지 사항을 아래에 배치 */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #000000; /* 검은색 배경 */
+    background-image: url('background_image.jpg'); /* 배경 이미지 경로 */
+    background-size: cover; /* 배경 이미지가 전체를 덮도록 */
+    background-position: center; /* 배경 이미지 중앙 정렬 */
+    background-repeat: no-repeat; /* 배경 이미지 반복 없음 */
+    background-attachment: fixed; /* 배경 이미지 스크롤에 고정 */
+    background-blend-mode: overlay; /* 이미지와 배경색을 겹치게 하여 어둡게 만듦 */
+    margin: 0;
+    color: #f0f0f0; /* 기본 텍스트 색상을 밝게 변경하여 검은 배경에서 잘 보이도록 함 */
+    line-height: 1.6;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.container {
+    background-color: rgba(0, 0, 0, 0.7); /* 컨테이너 배경을 더 투명한 검정으로 변경 */
+    padding: 30px 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7); /* 그림자를 더 어둡게 */
+    text-align: center;
+    max-width: 700px;
+    width: 100%;
+    margin: 20px 0;
+    border: 1px solid #333; /* 컨테이너 테두리 추가 (선택 사항) */
+}
+
+h1 {
+    color: #fdd835; /* 제목 색상을 밝은 노란색으로 변경 */
+    margin-bottom: 20px;
+    font-size: 2.2em;
+    text-shadow: 2px 2px 4px #000; /* 제목 그림자를 더 강하게 */
+}
+
+.instruction {
+    font-size: 1em;
+    margin-bottom: 25px;
+    color: #eee; /* 설명 텍스트 색상 변경 */
+}
+
+/* 질문 입력 부분 스타일 */
+.question-input-group {
+    margin-bottom: 30px;
+    text-align: left;
+    display: flex; /* 가로 배열을 위해 flex 사용 */
+    flex-direction: column; /* 세로 배열로 변경 */
+    align-items: center; /* 가운데 정렬 */
+    gap: 15px; /* 요소 간 간격 */
+}
+
+.question-input-group label {
+    display: block;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #ddd;
+    margin-bottom: 0; /* 라벨과 인풋 간격 조절 */
+    width: 100%; /* 너비 전체 사용 */
+    text-align: center; /* 가운데 정렬 */
+}
+
+.question-input-group input[type="text"] {
+    width: calc(100% - 20px); /* 패딩 고려 */
+    padding: 12px 10px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box; /* 패딩이 너비에 포함되도록 */
+    color: #eee;
+    background-color: #333; /* 입력 필드 배경색 변경 */
+    max-width: 400px; /* 최대 너비 설정 */
+}
+
+.question-input-group input[type="text"]::placeholder {
+    color: #aaa;
+}
+
+/* MAGIC 버튼 스타일 */
+.magic-button {
+    background-color: #007bff; /* 파란색 */
+    color: #fff;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: auto; /* 내용에 맞게 너비 조절 */
+    margin-top: 10px; /* 인풋과의 간격 */
+}
+
+.magic-button:hover:not(:disabled) {
+    background-color: #0056b3;
+    transform: translateY(-1px);
+}
+
+.magic-button:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+
+.card-selection {
+    display: grid;
+    /* 9개의 카드를 3x3으로 배치하기 위해 grid-template-columns을 3개 열로 명시적으로 설정 */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.card {
+    background-color: #8FBC8F; /* 초록색 계열로 변경 (LightSeaGreen) */
+    border: 2px solid #3CB371; /* 초록색 테두리 (MediumSeaGreen) */
+    border-radius: 10px;
+    padding: 15px 8px;
+    font-size: 0.9em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    color: #000000; /* 초록색 배경에서 잘 보이도록 텍스트 색상 검정색으로 변경 */
+    aspect-ratio: 1 / 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card:hover {
+    background-color: #6B8E23; /* 초록색 계열 hover (OliveDrab) */
+    transform: translateY(-3px);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+    color: #ffffff; /* hover 시 텍스트 색상 흰색으로 변경 */
+}
+
+.card.selected {
+    background-color: #3CB371; /* 선택된 카드 초록색 강조 (MediumSeaGreen) */
+    color: #ffffff;
+    border-color: #2E8B57; /* 더 진한 초록색 테두리 (SeaGreen) */
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
+    transform: scale(1.03);
+}
+
+/* 카드가 비활성화되었을 때의 스타일 */
+.card:disabled {
+    background-color: #555; /* 비활성화 시 더 어두운 회색 */
+    border-color: #777;
+    color: #ccc; /* 텍스트 색상도 어둡게 */
+    cursor: not-allowed;
+    opacity: 0.6; /* 투명도 조절 */
+    transform: none; /* hover 효과 제거 */
+    box-shadow: none; /* 그림자 제거 */
+}
+
+.card:disabled:hover {
+    background-color: #555; /* hover 시에도 비활성화 색상 유지 */
+    transform: none;
+    box-shadow: none;
+}
+
+
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+#getPredictionBtn {
+    background-color: #28a745; /* 버튼 색상 변경 */
+    color: #fff;
+    padding: 18px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 100%;
+    max-width: none;
+}
+
+#getPredictionBtn:hover:not(:disabled) {
+    background-color: #218838;
+    transform: translateY(-1px);
+}
+
+#getPredictionBtn:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+}
+
+#resetBtn {
+    background-color: #dc3545; /* 빨간색 */
+    color: #fff;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 100%;
+}
+
+#resetBtn:hover {
+    background-color: #c82333;
+    transform: translateY(-1px);
+}
+
+.prediction-result {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7); /* 결과 배경 어둡게 */
+    border: 1px solid #555;
+    border-radius: 10px;
+    text-align: left;
+    font-size: 1em;
+    color: #eee; /* 결과 텍스트 색상 변경 */
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.5);
+}
+
+.prediction-result h2 {
+    color: #fdd835; /* 결과 제목 색상 변경 */
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-size: 1.5em;
+}
+
+/* 고지 사항 스타일 */
+.disclaimer {
+    font-size: 0.8em;
+    color: #aaa;
+    margin-top: 30px;
+    text-align: center;
+    padding-bottom: 20px; /* 하단 여백 추가 */
+}
+
+/* 추가적인 모바일 최적화 (더 작은 화면) */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8em;
+    }
+    .instruction {
+        font-size: 0.95em;
+    }
+    .question-input-group input[type="text"] {
+        font-size: 0.9em;
+        padding: 10px;
+    }
+    .magic-button {
+        padding: 10px 20px;
+        font-size: 1.1em;
+    }
+    .card-selection {
+        grid-template-columns: repeat(3, 1fr); /* 3열 유지 */
+    }
+    .card {
+        font-size: 0.85em;
+        padding: 12px 6px;
+    }
+    #getPredictionBtn {
+        font-size: 1.3em;
+        padding: 15px 25px;
+    }
+    #resetBtn {
+        font-size: 0.9em;
+        padding: 10px 20px;
+    }
+    .prediction-result {
+        font-size: 0.95em;
+        padding: 15px;
+    }
+    .prediction-result h2 {
+        font-size: 1.3em;
+    }
+    .disclaimer {
+        font-size: 0.7em;
+        margin-top: 20px;
+    }
+}
